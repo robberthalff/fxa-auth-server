@@ -272,11 +272,11 @@ var conf = convict({
     }
   },
   verificationReminder: {
-    enabled: {
-      doc: 'Is verification reminder enabled',
-      format: Boolean,
-      env: 'VERIFICATION_REMINDER_ENABLED',
-      default: false
+    queueRegion: {
+      doc: 'The region where the queues live, most likely the same region we are sending email e.g. us-east-1, us-west-2',
+      format: String,
+      env: 'VERIFICATION_REMINDER_QUEUE_REGION',
+      default: ''
     },
     queueUrl: {
       doc: 'The verification reminder queue URL to use (should include https://sqs.<region>.amazonaws.com/<account-id>/<queue-name>)',
@@ -285,8 +285,8 @@ var conf = convict({
       default: ''
     },
     queueRate: {
-      doc: 'Percentage of users getting the verification reminder',
-      default: 0.1,
+      doc: 'Percentage of users getting the verification reminder. If "0" then the feature is disabled.',
+      default: 0,
       env: 'VERIFICATION_REMINDER_RATE'
     }
   },
