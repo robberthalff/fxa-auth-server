@@ -1,4 +1,4 @@
-FROM mhart/alpine-node
+FROM mhart/alpine-node:4
 
 RUN apk add --update --virtual build-dependencies \
     git make gcc g++ python
@@ -82,5 +82,5 @@ RUN npm i --production
 RUN apk del build-dependencies && \
     rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
 
-CMD node ./bin/key_server.js | node ./bin/notifier.js >/dev/null
+ENTRYPOINT exec node ./bin/key_server.js | node ./bin/notifier.js >/dev/null
 
