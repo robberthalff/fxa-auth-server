@@ -74,7 +74,7 @@ ADD package.json /app/package.json
 
 WORKDIR /app
 
-RUN npm i
+RUN npm i --production
 
 # Skip mount through volume
 # RUN node ./scripts/gen_keys.js
