@@ -62,10 +62,10 @@ EXPOSE 7000
 
 VOLUME [ "/app/config" ]
 
-copy bin /app/bin
-copy config /app/config
-copy lib /app/lib
-copy scripts /app/scripts
+COPY bin /app/bin
+COPY config /app/config
+COPY lib /app/lib
+COPY scripts /app/scripts
 ADD AUTHORS /app/AUTHORS
 ADD CHANGELOG.md /app/CHANGELOG.md
 ADD LICENSE /app/LICENSE
